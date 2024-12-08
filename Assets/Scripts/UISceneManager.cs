@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public void OnInitAppScene() {
+    public static void OnInitAppScene() {
         SceneManager.LoadScene("Ingreso");
     }
 
-    public void OnRegisterAppScene(){
+    public static void OnRegisterAppScene(){
         SceneManager.LoadScene("Registro");
     }
 
