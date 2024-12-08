@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{C48E561D-4DC6-0329-C9AE-97ED90355A8B}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/utils/FileBrowserUI.cs">
     <Files>
-      <File FileName="Assets/Scripts/utils/FileBrowserUI.cs" Line="82" Column="10" />
-      <File FileName="Assets/Scripts/DirectoryManager.cs" />
+      <File FileName="Assets/Scripts/utils/FileBrowserUI.cs" Line="185" Column="41" />
+      <File FileName="Assets/Scripts/DirectoryManager.cs" Line="280" Column="10" />
+      <File FileName="Assets/Scripts/utils/Helpers.cs" Line="72" Column="79" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

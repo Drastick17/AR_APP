@@ -143,7 +143,7 @@ namespace App.FileBrowserUI
                 FileInfo fileInfo = new(file);
 
                 //omite los documentos que no son medicos
-                if (MedicalFiles.IsMedicalFile(fileInfo.Extension.ToLower())) return;
+                if (!MedicalFiles.IsMedicalFile(fileInfo.Extension.ToLower())) continue;
 
                 // Crear un nuevo boton para el archivo
                 GameObject newBtnGo = Instantiate(prefabBtnDir, pnlContent);
@@ -175,10 +175,21 @@ namespace App.FileBrowserUI
         }
 
 
-        private void LoadFileOrDirectory()
+        private async void LoadFileOrDirectory()
         {
             // btnLoadFileOrDirectory.interactable = false;
             // Se valida el tipo de busqueda
+            try
+            {
+
+                if(File.Exists(selectedElement))
+                await MedicalFiles.LoadDirectory("");
+                await MedicalFiles.LoadFile("");
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
         }
 
 
