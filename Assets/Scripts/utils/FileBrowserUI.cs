@@ -29,6 +29,8 @@ namespace App.FileBrowserUI
         // Referencia de la etiqueta, que muestra la ruta
         [SerializeField] private TMP_Text PathLabel;
 
+        [SerializeField] private GameObject ActionButton;
+
         //Guarda todas las ubicaciones disponibles de la PC en botones
         private readonly List<Button> allButtonDrives = new();
 
@@ -146,14 +148,14 @@ namespace App.FileBrowserUI
                 if (!MedicalFiles.IsMedicalFile(fileInfo.Extension.ToLower())) continue;
 
                 // Crear un nuevo boton para el archivo
-                GameObject newBtnGo = Instantiate(prefabBtnDir, pnlContent);
+                GameObject newBtnGo = Instantiate(prefaBtnFile, pnlContent);
                 TMP_Text newTxtBtn = newBtnGo.transform.GetChild(0)
                     .GetComponent<TMP_Text>();
 
                 newTxtBtn.text = fileInfo.Name;
                 // Evento para cargar el archivo cuando se hace clic en el boton
                 Button newButton = newBtnGo.GetComponent<Button>();
-                // newButton.onClick.AddListener(() => SetPathFile(file));
+                //newButton.onClick.AddListener(() => SetPathFile(file));
             }
 
             // Se recorre todos los directorios dentro de la ruta
@@ -168,30 +170,24 @@ namespace App.FileBrowserUI
                 newTxtBtnDir.text = dirInfo.Name;
                 // Evento para cargar los archivos y directorios dentro del nuevo directorio
                 Button newButtonDirectory = newBtnGoDir.GetComponent<Button>();
-                newButtonDirectory.onClick.AddListener(() => SetPathDirectory(dir));
+                
+               newButtonDirectory.onClick.AddListener(() => LoadDirectory(dir));
             }
 
 
         }
 
 
-        private async void LoadFileOrDirectory()
+
+        private async void LoadDirectory(string dir)
         {
-            // btnLoadFileOrDirectory.interactable = false;
-            // Se valida el tipo de busqueda
-            try
-            {
-
-                if(File.Exists(selectedElement))
-                await MedicalFiles.LoadDirectory("");
-                await MedicalFiles.LoadFile("");
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e);
-            }
+            await MedicalFiles.LoadDirectory(dir);
         }
 
+        private async void LoadFile(string dir)
+        {
+            await MedicalFiles.LoadFile(dir);
+        }
 
         private void Awake()
         {

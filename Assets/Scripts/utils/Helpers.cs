@@ -48,12 +48,13 @@ namespace App.Helper
             {
                 VolumeDataset dataset = await importer.ImportSeriesAsync(series);
 
-                if (dataset == null) continue;
+                if (numVolumesCreated > 0) break;
 
                 // Aparece el objeto
                 VolumeRenderedObject obj = await VolumeObjectFactory
                         .CreateObjectAsync(dataset);
                 obj.transform.position = new UnityEngine.Vector3(numVolumesCreated, 0, 0);
+
 
                 return obj;
                 //DisplaySetting.DisSingleton.SetResonance(obj);
