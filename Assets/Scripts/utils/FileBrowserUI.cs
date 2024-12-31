@@ -216,6 +216,8 @@ namespace App.FileBrowserUI
             Debug.Log(GlobalState.Instance.uploadType);
             Debug.Log(selectedItemPath);
 
+            GlobalState.Instance.path = selectedItemPath;
+
             try
             {
                 if ( GlobalState.Instance.uploadType == "file")
@@ -226,7 +228,9 @@ namespace App.FileBrowserUI
                 {
                     LoadDirectory();
                 }
+
                 sceneManager.ChangeScene(nextScene);
+
 
             }catch(Exception e)
             {
