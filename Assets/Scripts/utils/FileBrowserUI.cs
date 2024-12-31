@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityVolumeRendering;
 using System.Collections.Generic;
-using App.Helper;
+using App.Medical;
 
 
 namespace App.FileBrowserUI
@@ -29,15 +29,19 @@ namespace App.FileBrowserUI
         // Referencia de la etiqueta, que muestra la ruta
         [SerializeField] private TMP_Text PathLabel;
 
-        [SerializeField] private GameObject ActionButton;
+
+        [SerializeField] private Button UploadButton;
+
+        [SerializeField] private SceneManager sceneManager;
+
+        [SerializeField] private GameObject nextScene;
 
         //Guarda todas las ubicaciones disponibles de la PC en botones
         private readonly List<Button> allButtonDrives = new();
 
-
         private string currentDirectory;
 
-        private string selectedDirectory;
+        private string selectedItemPath = "";
 
 
         private void UpdatePathLabel(string dir)
@@ -155,7 +159,7 @@ namespace App.FileBrowserUI
                 newTxtBtn.text = fileInfo.Name;
                 // Evento para cargar el archivo cuando se hace clic en el boton
                 Button newButton = newBtnGo.GetComponent<Button>();
-                //newButton.onClick.AddListener(() => SetPathFile(file));
+                newButton.onClick.AddListener(() => SetSelectedItemToUpload(file));
             }
 
             // Se recorre todos los directorios dentro de la ruta
@@ -170,27 +174,70 @@ namespace App.FileBrowserUI
                 newTxtBtnDir.text = dirInfo.Name;
                 // Evento para cargar los archivos y directorios dentro del nuevo directorio
                 Button newButtonDirectory = newBtnGoDir.GetComponent<Button>();
-                
-               newButtonDirectory.onClick.AddListener(() => LoadDirectory(dir));
+               newButtonDirectory.onClick.AddListener(() => NavigateAndSelectFolder(dir));
+            }
+        }
+
+        private void NavigateAndSelectFolder(string dir)
+        {
+            SetPathDirectory(dir);
+            SetSelectedItemToUpload(dir);
+        }
+
+        private void SetSelectedItemToUpload(string dir)
+        {
+            selectedItemPath = dir;
+
+            if (GlobalState.Instance.uploadType == "file" && File.Exists(dir)){
+                UploadButton.interactable = true;
             }
 
-
+            if (GlobalState.Instance.uploadType == "dir" && Directory.Exists(dir))
+            {
+                UploadButton.interactable = true;
+            }
         }
 
-
-
-        private async void LoadDirectory(string dir)
+        private async void LoadDirectory()
         {
-            await MedicalFiles.LoadDirectory(dir);
+            await MedicalFiles.LoadDirectory(selectedItemPath);
         }
 
-        private async void LoadFile(string dir)
+        private async void LoadFile()
         {
-            await MedicalFiles.LoadFile(dir);
+            await MedicalFiles.LoadFile(selectedItemPath);
+        }
+
+        public void UploadAndRender()
+        {
+
+            if (selectedItemPath == "") return;
+
+            Debug.Log(GlobalState.Instance.uploadType);
+            Debug.Log(selectedItemPath);
+
+            try
+            {
+                if ( GlobalState.Instance.uploadType == "file")
+                {
+                    LoadFile();
+                }
+                else
+                {
+                    LoadDirectory();
+                }
+                sceneManager.ChangeScene(nextScene);
+
+            }catch(Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
         }
 
         private void Awake()
         {
+            UploadButton.interactable = false;
+
             CleanPanel();
             ListDrives();
         }

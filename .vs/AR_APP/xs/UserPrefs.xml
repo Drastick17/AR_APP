@@ -1,16 +1,30 @@
 ﻿<Properties StartupConfiguration="{C48E561D-4DC6-0329-C9AE-97ED90355A8B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UISceneManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/utils/DataPersintece.cs">
     <Files>
-      <File FileName="Assets/Scripts/UISceneManager.cs" Line="64" Column="1" />
+      <File FileName="Assets/Scripts/state/GlobalState.cs" Line="49" Column="2" />
+      <File FileName="Assets/Scripts/utils/FileBrowserUI.cs" Line="233" Column="1" />
+      <File FileName="Assets/Scripts/utils/Medical.cs" Line="26" Column="10" />
+      <File FileName="Assets/Scripts/SceneManager.cs" Line="8" Column="35" />
+      <File FileName="Assets/Scripts/serializables/RecentFile.cs" Line="11" Column="1" />
+      <File FileName="Assets/Scripts/DirectoryManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/utils/DataPersintece.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AR_APP" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Plugins" expanded="True">
+                <Node name="EasyVolumeRendering" expanded="True">
+                  <Node name="Assets" expanded="True">
+                    <Node name="3rdparty" expanded="True">
+                      <Node name="Nifti.NET" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="utils" expanded="True" />
-                <Node name="UISceneManager.cs" selected="True" />
+                <Node name="utils" expanded="True" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -20,7 +34,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e9bb3989-2ed2-490b-a971-c2d54c287b84" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3593be12-8f50-4d2c-b55f-1c364e95196f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

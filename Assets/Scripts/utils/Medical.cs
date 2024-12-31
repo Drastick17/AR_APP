@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityVolumeRendering;
 
 
-namespace App.Helper
+namespace App.Medical
 {
 
     public class MedicalFiles
@@ -34,6 +34,8 @@ namespace App.Helper
             // Se da lectura a todos los ficheros
             IEnumerable<string> fileCandidates = Directory.EnumerateFiles(filePath, "*.*", true ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly)
                 ?.Where(medicalFile => IsMedicalFile(medicalFile));
+
+            if (fileCandidates.Count() == 0) return null;
 
             // Importa el conjunto de datos
             IImageSequenceImporter importer = ImporterFactory
