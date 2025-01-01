@@ -30,7 +30,7 @@ public static class DataPersistence
 
     public static T LoadRecentFile<T>(string fileName)
     {
-        string fullPath = Application.persistentDataPath + "/" + path + "/" + fileName + ".json";
+        string fullPath = Application.persistentDataPath + "/" + path + "/" + fileName;
         if (File.Exists(fullPath))
         {
             string jsonData = File.ReadAllText(fullPath);
@@ -45,14 +45,8 @@ public static class DataPersistence
         }
     }
 
-    public static void LoadListRecentFiles(){
+    public static string[] LoadListRecentFiles(){
         string fullPath = Application.persistentDataPath + "/" + path + "/";
-
-        foreach (string file in Directory.GetFiles(fullPath))
-        {
-            FileInfo fileInfo = new(file);
-            Debug.Log(fileInfo);
-        }
-        
+        return Directory.GetFiles(fullPath);
     }
 }
