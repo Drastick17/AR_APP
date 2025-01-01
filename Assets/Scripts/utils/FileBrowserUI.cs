@@ -230,7 +230,7 @@ namespace App.FileBrowserUI
                 }
 
                 sceneManager.ChangeScene(nextScene);
-
+                GlobalState.Instance.SaveRecentRender("prueba");
 
             }catch(Exception e)
             {

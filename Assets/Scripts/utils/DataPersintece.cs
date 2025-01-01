@@ -6,7 +6,7 @@ using System;
 
 public static class DataPersistence
 {
-    static string path = "/recents";
+    static string path = "recents";
 
     public static void saveRecentPath<T>(T data, string fileName)
     {
@@ -20,8 +20,9 @@ public static class DataPersistence
         {
             string jsonData = JsonUtility.ToJson(data);
             File.WriteAllText(fullPath + fileName + ".json", jsonData);
+            Debug.Log(fullPath);
             Debug.Log("Saved file!");
-        }catch(Exception e)
+        } catch (Exception e)
         {
             Debug.LogError(e.Message);
         }
@@ -42,5 +43,16 @@ public static class DataPersistence
             Debug.LogError("Don't loaded!");
             return default;
         }
+    }
+
+    public static void LoadListRecentFiles(){
+        string fullPath = Application.persistentDataPath + "/" + path + "/";
+
+        foreach (string file in Directory.GetFiles(fullPath))
+        {
+            FileInfo fileInfo = new(file);
+            Debug.Log(fileInfo);
+        }
+        
     }
 }
