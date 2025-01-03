@@ -5,6 +5,7 @@ using UnityEngine;
 using App.Medical;
 using System.IO;
 using TMPro;
+using UnityVolumeRendering;
 
 public class RecentsUI : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class RecentsUI : MonoBehaviour
 
     private void Awake()
     {
-
         string[] fileList = DataPersistence.LoadListRecentFiles();
 
         foreach (string file in fileList)
@@ -33,18 +33,14 @@ public class RecentsUI : MonoBehaviour
 
     private async void LoadAndRenderFile(string fileName)
     {
-        Debug.Log(fileName);
         RecentFile data = DataPersistence.LoadRecentFile<RecentFile>(fileName);
-        if (data.fileType == "dir")
-        {
-           await MedicalFiles.LoadDirectory(data.path);
-        }
 
-        if (data.fileType == "file")
-        {
-            await MedicalFiles.LoadFile(data.path);
-        }
+        VolumeRenderedObject obj = data.fileType == "dir"
+            ? await MedicalFiles.LoadDirectory(data.path)
+            : await MedicalFiles.LoadFile(data.path);
 
+        Debug.Log("loaded" + obj.name);
+        GlobalState.Instance.SetLoadedObject(obj);
     }
    
 }

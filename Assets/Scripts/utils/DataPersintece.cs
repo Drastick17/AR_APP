@@ -35,7 +35,7 @@ public static class DataPersistence
         {
             string jsonData = File.ReadAllText(fullPath);
             T data = JsonUtility.FromJson<T>(jsonData);
-            Debug.LogError("Loaded!");
+            Debug.Log("Loaded!");
             return data;
         }
         else

@@ -5,6 +5,8 @@ public class ArFaceTracker : MonoBehaviour
 {
     [SerializeField] private ARFaceManager arFaceManager;
 
+
+
     private void OnEnable()
     {
         // Subscribe to the event when a new face is added

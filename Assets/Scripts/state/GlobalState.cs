@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityVolumeRendering;
 
 public class GlobalState : MonoBehaviour
 {
 
     public string path;
     public string uploadType;
+    public VolumeRenderedObject loadedFile;
 
     // This part helps ensure there's only one instance of this class.
     private static GlobalState instance;
@@ -33,6 +35,12 @@ public class GlobalState : MonoBehaviour
     {
         uploadType = fileType;
     }
+
+    public void SetLoadedObject(VolumeRenderedObject obj)
+    {
+        loadedFile = obj;
+    }
+
 
     public void SaveRecentRender(string name)
     {

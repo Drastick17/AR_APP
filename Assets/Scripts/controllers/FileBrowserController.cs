@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityVolumeRendering;
 using System.Collections.Generic;
 using App.Medical;
+using System.Threading.Tasks;
 
 
 namespace App.FileBrowserUI
@@ -199,17 +200,19 @@ namespace App.FileBrowserUI
             }
         }
 
-        private async void LoadDirectory()
+        private async Task<VolumeRenderedObject> LoadDirectory()
         {
-            await MedicalFiles.LoadDirectory(selectedItemPath);
+            VolumeRenderedObject renderedVolume = await MedicalFiles.LoadDirectory(selectedItemPath);
+            return renderedVolume;
         }
 
-        private async void LoadFile()
+        private async Task<VolumeRenderedObject> LoadFile()
         {
-            await MedicalFiles.LoadFile(selectedItemPath);
+            VolumeRenderedObject renderedVolume = await MedicalFiles.LoadFile(selectedItemPath);
+            return renderedVolume;
         }
 
-        public void UploadAndRender()
+        public async void UploadAndRender()
         {
 
             if (selectedItemPath == "") return;
@@ -222,16 +225,12 @@ namespace App.FileBrowserUI
 
             try
             {
-                if ( GlobalState.Instance.uploadType == "file")
-                {
-                    LoadFile();
-                }
-                else
-                {
-                    LoadDirectory();
-                }
+                VolumeRenderedObject obj = GlobalState.Instance.uploadType == "file"
+                    ? await LoadFile()
+                    : await LoadDirectory();
 
-                // sceneManager.ChangeScene(nextScene);
+                Debug.Log("loaded" + obj.name);
+                GlobalState.Instance.SetLoadedObject(obj);
 
                 var file = GlobalState.Instance.uploadType == "file"
                     ? (FileSystemInfo)new FileInfo(selectedItemPath)
