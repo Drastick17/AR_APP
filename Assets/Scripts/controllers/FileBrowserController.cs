@@ -32,9 +32,9 @@ namespace App.FileBrowserUI
 
         [SerializeField] private Button UploadButton;
 
-        [SerializeField] private SceneManager sceneManager;
+        // [SerializeField] private SceneManager sceneManager;
 
-        [SerializeField] private GameObject nextScene;
+        // [SerializeField] private GameObject nextScene;
 
         //Guarda todas las ubicaciones disponibles de la PC en botones
         private readonly List<Button> allButtonDrives = new();
@@ -175,6 +175,7 @@ namespace App.FileBrowserUI
                 // Evento para cargar los archivos y directorios dentro del nuevo directorio
                 Button newButtonDirectory = newBtnGoDir.GetComponent<Button>();
                newButtonDirectory.onClick.AddListener(() => NavigateAndSelectFolder(dir));
+
             }
         }
 
@@ -218,6 +219,7 @@ namespace App.FileBrowserUI
 
             GlobalState.Instance.path = selectedItemPath;
 
+
             try
             {
                 if ( GlobalState.Instance.uploadType == "file")
@@ -229,10 +231,18 @@ namespace App.FileBrowserUI
                     LoadDirectory();
                 }
 
-                sceneManager.ChangeScene(nextScene);
-                GlobalState.Instance.SaveRecentRender("prueba");
+                // sceneManager.ChangeScene(nextScene);
 
-            }catch(Exception e)
+                var file = GlobalState.Instance.uploadType == "file"
+                    ? (FileSystemInfo)new FileInfo(selectedItemPath)
+                    : new DirectoryInfo(selectedItemPath);
+
+                GlobalState.Instance.SaveRecentRender(file.Name);
+
+
+
+            }
+            catch (Exception e)
             {
                 Debug.LogError(e.Message);
             }
@@ -241,7 +251,6 @@ namespace App.FileBrowserUI
         private void Awake()
         {
             UploadButton.interactable = false;
-
             CleanPanel();
             ListDrives();
         }

@@ -6,7 +6,6 @@ public class GlobalState : MonoBehaviour
     public string path;
     public string uploadType;
 
-
     // This part helps ensure there's only one instance of this class.
     private static GlobalState instance;
 

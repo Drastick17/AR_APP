@@ -13,6 +13,7 @@ public class RecentsUI : MonoBehaviour
 
     private void Awake()
     {
+
         string[] fileList = DataPersistence.LoadListRecentFiles();
 
         foreach (string file in fileList)

@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneController : MonoBehaviour
+public class SceneControler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject currentScene;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ChangeScene(GameObject nextScene)
+        {
+            if (!currentScene || !nextScene) return;
+
+            currentScene.SetActive(false);
+            nextScene.SetActive(true);
+
     }
 }
