@@ -1,14 +1,20 @@
 ﻿<Properties StartupConfiguration="{C48E561D-4DC6-0329-C9AE-97ED90355A8B}|">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ARFacePosition.cs">
+    <Files>
+      <File FileName="Assets/Scripts/controllers/Recents.cs" Line="19" Column="31" />
+      <File FileName="Assets/Scripts/controllers/ARView.cs" Line="18" Column="10" />
+      <File FileName="Assets/Scripts/utils/ARVolumeRendered.cs" />
+      <File FileName="Assets/Scripts/ARFacePosition.cs" Line="13" Column="8" />
+      <File FileName="Assets/Scripts/utils/ArFaceTracker.cs" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AR_APP" expanded="True">
-            <Node name="Assets" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
               <Node name="Scripts" expanded="True">
-                <Node name="controllers" expanded="True">
-                  <Node name="FileBrowser.cs" selected="True" />
-                </Node>
+                <Node name="controllers" expanded="True" />
+                <Node name="utils" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -18,7 +24,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="eb062d88-4493-4c2a-b5c2-63c0233e9ea9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b7446789-986f-45ab-a611-fb1177176c2c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

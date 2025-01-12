@@ -20,7 +20,7 @@ public class RecentsUI : MonoBehaviour
 
         foreach (string file in fileList)
         {
-           
+
             FileInfo fileInfo = new(file);
 
             GameObject newBtn = Instantiate(prefabRecentButton, pnlContent);
@@ -43,8 +43,13 @@ public class RecentsUI : MonoBehaviour
 
         Debug.Log("loaded" + obj.name);
         GlobalState.Instance.SetLoadedObject(obj);
+        ActiveARScene();
     }
 
+
+    public void ActiveARScene() {
+        GameManager.instance.ARView();
+    }
 
     public void ActiveFileExplorerScene(string fileType)
     {
