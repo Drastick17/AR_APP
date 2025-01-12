@@ -1,11 +1,5 @@
 ﻿<Properties StartupConfiguration="{C48E561D-4DC6-0329-C9AE-97ED90355A8B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/controllers/FileBrowserController.cs">
-    <Files>
-      <File FileName="Assets/Scripts/controllers/FileBrowserController.cs" Line="232" Column="1" />
-      <File FileName="Assets/Scripts/utils/Medical.cs" Line="86" Column="24" />
-      <File FileName="Assets/Scripts/utils/DataPersintece.cs" Line="26" Column="10" />
-      <File FileName="Assets/Scripts/controllers/RecentsController.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -13,30 +7,20 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="controllers" expanded="True">
-                  <Node name="FileBrowserController.cs" selected="True" />
+                  <Node name="FileBrowser.cs" selected="True" />
                 </Node>
-                <Node name="serializables" expanded="True" />
-                <Node name="state" expanded="True" />
-                <Node name="utils" expanded="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d1a94c0a-43c0-4b86-9a3c-aaf93a0fe1df" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="eb062d88-4493-4c2a-b5c2-63c0233e9ea9" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/Danny/Documents/GitHub/AR_APP/Assets/Scripts/controllers/FileBrowserController.cs" relfile="Assets/Scripts/controllers/FileBrowserController.cs" line="228" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

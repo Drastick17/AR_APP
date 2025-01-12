@@ -5,7 +5,7 @@ public class GlobalState : MonoBehaviour
 {
 
     public string path;
-    public string uploadType;
+    public string uploadType; // dir || file
     public VolumeRenderedObject loadedFile;
 
     // This part helps ensure there's only one instance of this class.

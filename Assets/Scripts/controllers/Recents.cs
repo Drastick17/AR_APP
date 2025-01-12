@@ -12,6 +12,8 @@ public class RecentsUI : MonoBehaviour
     [SerializeField] private Transform pnlContent;
     [SerializeField] private GameObject prefabRecentButton;
 
+
+
     private void Awake()
     {
         string[] fileList = DataPersistence.LoadListRecentFiles();
@@ -41,6 +43,13 @@ public class RecentsUI : MonoBehaviour
 
         Debug.Log("loaded" + obj.name);
         GlobalState.Instance.SetLoadedObject(obj);
+    }
+
+
+    public void ActiveFileExplorerScene(string fileType)
+    {
+        GlobalState.Instance.SetUploadType(fileType);
+        GameManager.instance.FileExplorerView();
     }
    
 }

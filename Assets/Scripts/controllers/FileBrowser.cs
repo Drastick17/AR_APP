@@ -238,13 +238,19 @@ namespace App.FileBrowserUI
 
                 GlobalState.Instance.SaveRecentRender(file.Name);
 
-
-
+                GameManager.instance.ARView();
+ 
             }
             catch (Exception e)
             {
                 Debug.LogError(e.Message);
             }
+        }
+
+        public void BackToRecentFiles()
+        {
+            GlobalState.Instance.SetUploadType("");
+            GameManager.instance.RecentsView();
         }
 
         private void Awake()
