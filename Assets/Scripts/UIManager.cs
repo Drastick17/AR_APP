@@ -18,6 +18,14 @@ public class UIManager : MonoBehaviour
         GameManager.instance.OnFaceTracker += ActivateARFaceTracker;
     }
 
+    private void Awake()
+    {
+        HomeCanvas.transform.localScale = new Vector3(0, 0, 0);
+        RecentsCanvas.transform.localScale = new Vector3(0, 0, 0);
+        FileExplorerCanvas.transform.localScale = new Vector3(0, 0, 0);
+        ARFaceTrackerView.transform.localScale = new Vector3(0, 0, 0);
+    }
+
     private void ActivateHome()
     {
         HomeCanvas.SetActive(true);
