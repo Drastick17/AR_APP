@@ -1,20 +1,22 @@
 ﻿<Properties StartupConfiguration="{C48E561D-4DC6-0329-C9AE-97ED90355A8B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UIManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/utils/ARVolumeRendered.cs">
     <Files>
       <File FileName="Assets/Scripts/controllers/Recents.cs" Line="19" Column="31" />
       <File FileName="Assets/Scripts/controllers/ARView.cs" />
-      <File FileName="Assets/Scripts/utils/ARVolumeRendered.cs" />
-      <File FileName="Assets/Scripts/ARFacePosition.cs" Line="6" Column="44" />
+      <File FileName="Assets/Scripts/utils/ARVolumeRendered.cs" Line="8" Column="45" />
+      <File FileName="Assets/Scripts/ARFacePosition.cs" />
       <File FileName="Assets/Scripts/utils/ArFaceTracker.cs" />
-      <File FileName="Assets/Scripts/UIManager.cs" Line="26" Column="44" />
+      <File FileName="Assets/Scripts/UIManager.cs" Line="30" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AR_APP" expanded="True">
-            <Node name="Assets" expanded="True" selected="True">
+            <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="controllers" expanded="True" />
+                <Node name="controllers" expanded="True">
+                  <Node name="Recents.cs" selected="True" />
+                </Node>
                 <Node name="utils" expanded="True" />
               </Node>
             </Node>

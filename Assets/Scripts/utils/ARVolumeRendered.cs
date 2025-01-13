@@ -5,7 +5,7 @@ using UnityVolumeRendering;
 
 public class ARVolumeRendered : MonoBehaviour
 {
-    private readonly List<GameObject> slices = new();
+    private readonly List<GameObject> slices;
     public  VolumeRenderedObject volumeRendered;
 
     //Vector3[] rotations = { Vector3.zero, new Vector3(90.0f, 0.0f, 0.0f), new Vector3(0.0f, 0.0f, 90.0f) };
