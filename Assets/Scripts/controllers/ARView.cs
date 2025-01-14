@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class ARView : MonoBehaviour
 {
-
+   
     [SerializeField] private Camera mainCamara;
+    // Componente de imagen para la resonancia
+    [SerializeField] private RawImage imgResonance;
+    [SerializeField] private GameObject progressBarXY;
+    [SerializeField] private GameObject progressBarZX;
+    [SerializeField] private GameObject progressBarZY;
+
 
     ARVolumeRendered volumeManager = new();
 
@@ -22,6 +28,27 @@ public class ARView : MonoBehaviour
         }
     }
 
+    private void FollowHead()
+    {
+    if (arFaceManager == null && arFaceManager.trackables.count == 0) return;
+        
+            foreach (var face in arFaceManager.trackables)
+            {
+                Transform faceTransform = face.transform;
+
+                // Log the position
+                Debug.Log($"Face Position: {faceTransform.position}");
+
+                //TODO ADAPT THIS TO CORRECT POSITIONING OF RENDERED VOLUME
+            }
+    }
+
+    public void EnableXYSlixing(){
+        //GET VALUE FROM progressBar
+        //WHEN CHANGE GET THE CURRENT POSITION
+    }
+
+
     private void Awake()
     {
         volumeManager.SetupVolume();
@@ -30,6 +57,11 @@ public class ARView : MonoBehaviour
     private void Start()
     {
         setStartObjectPosition();
+    }
+
+    private void Update()
+    {
+        FollowHead()
     }
 
 }

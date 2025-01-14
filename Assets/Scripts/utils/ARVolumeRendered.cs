@@ -5,7 +5,8 @@ using UnityVolumeRendering;
 
 public class ARVolumeRendered : MonoBehaviour
 {
-    private readonly List<GameObject> slices;
+    private GameObject planeObject;
+
     public  VolumeRenderedObject volumeRendered;
 
     //Vector3[] rotations = { Vector3.zero, new Vector3(90.0f, 0.0f, 0.0f), new Vector3(0.0f, 0.0f, 90.0f) };
@@ -44,15 +45,47 @@ public class ARVolumeRendered : MonoBehaviour
         VolumeObjectFactory.SpawnCrossSectionPlane(volumeRendered);
     }
 
+    private void EnableXZSlicing(){
+        CreateXZPlane();
+    }
+
+    private void EnableYZSlicing(){
+        CreateYZPlane();
+    }
+
+    private void EnableXYSlicing(){
+        CreateXYPlane();
+    }
+
+    private void EnableCutSectionPanel(){
+        CreateCutBox();
+        CreateCrossSectionPlane();
+    }
+
+    private void TransformMeshSlice(){
+        Material material = currentMeshRendered();
+        PaintSlice(material);
+    }
+
+    // Pinta la rawImage que pasa como parametro
+    private void PaintSlice(Material material) {
+        imgResonance.material = material;
+        imgResonance.gameObject.SetActive(isActive);
+    }
 
     private void CreatePlane(Vector3 v)
     {
         SlicingPlane plane = volumeRendered.CreateSlicingPlane();
-        GameObject planeObject = plane.gameObject;
+        planeObject = plane.gameObject;
 
         planeObject.transform.localRotation = Quaternion.Euler(v);
-
-        slices.Add(planeObject);
+        
         Debug.Log(planeObject);
     }
+    
+    private Material currentMeshRendered(){
+        if(planeObject.TryGetComponent(out MeshRenderer meshRenderer)) return;
+        return meshRenderer.sharedMaterial
+    }
+
 }
